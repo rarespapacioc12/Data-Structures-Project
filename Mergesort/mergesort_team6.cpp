@@ -8,7 +8,12 @@
 std::ifstream fin("input.txt");
 
 void merge(std::vector<int>& a, int st, int m, int dr){
+    int n1 = m - st + 1;
+    int n2 = dr - m;
 
+    std::vector<int> L(n1), R(n2);
+
+    
 }
 
 void merge_sort(std::vector<int>& a, int st, int dr){
