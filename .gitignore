@@ -1,1 +1,4 @@
-./project.pdf
+/project.pdf
+/small/
+/big/
+*.exe

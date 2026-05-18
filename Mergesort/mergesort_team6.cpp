@@ -13,11 +13,37 @@ void merge(std::vector<int>& a, int st, int m, int dr){
 
     std::vector<int> L(n1), R(n2);
 
-    
+    for (int i = 0; i < n1; ++i) {
+        L[i] = a[st + i];
+    }
+
+    for (int i = 0; i < n2; ++i) {
+        R[i] = a[m + 1 + i];
+    }
+
+    int i = 0, j = 0;
+    int k = st;
+
+    while(i < n1 && j < n2){
+        if(L[i] <= R[j]){
+            a[k++] = L[i++];
+        }
+        else{
+            a[k++] = R[j++];
+        }
+    }
+
+    while(i < n1){
+        a[k++] = L[i++];
+    }
+
+    while(j < n2){
+        a[k++] = R[j++];
+    }
 }
 
 void merge_sort(std::vector<int>& a, int st, int dr){
-    if(st == dr){
+    if(st >= dr){
         return;
     }
 
