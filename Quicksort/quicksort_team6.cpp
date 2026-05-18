@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cassert>
+#include <random>
 #define SMALL_TEST_FILENAME(i)  "../small/small_team6_" + std::to_string(i) + ".in"
 #define BIG_TEST_FILENAME(i)    "../big/big_team6_" + std::to_string(i) + ".in"
 #define GET_TEST_FILENAME(type, i) (type == TestType::SMALL) ? SMALL_TEST_FILENAME(i) : BIG_TEST_FILENAME(i)
@@ -77,6 +78,8 @@ void run_tests(TestType type) {
         }
 
         auto start = std::chrono::high_resolution_clock::now();
+        static std::mt19937 gen(std::random_device{}());
+        std::shuffle(a.begin(), a.end(), gen);
         custom_sort(a, 0, a.size() - 1);
         auto stop = std::chrono::high_resolution_clock::now();
         auto d = stop - start;
